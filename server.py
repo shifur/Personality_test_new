@@ -41,5 +41,6 @@ def home():
         print('unknow req')
 
 
-app.run()
+if __name__ == "__main__":
+    app.run()
 
