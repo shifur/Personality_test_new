@@ -15,6 +15,9 @@ def main():
     # drop country column for modelling
     df_model = data.drop('country', axis=1)
 
+    # remove rows with missing values to avoid NaNs during training
+    df_model.dropna(inplace=True)
+
     kmeans = KMeans(n_clusters=5, random_state=42)
     kmeans.fit(df_model)
 
