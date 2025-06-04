@@ -35,10 +35,10 @@ def home():
         #return jsonify(prediction=result)
         return response
     elif request.method == "GET":
-        print('get req recieved')
+        print('get req received')
         return "testing :)"
     else:
-        print('unknow req')
+        print('unknown req')
 
 
 app.run()
