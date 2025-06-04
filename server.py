@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import json
 import os
 from flask_cors import CORS
-from ml import Predictor
+from Five_Personality_Clusters import Predictor
 
 predictor = Predictor()
 
