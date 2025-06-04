@@ -18,7 +18,8 @@ def main():
     # remove rows with missing values to avoid NaNs during training
     df_model.dropna(inplace=True)
 
-    kmeans = KMeans(n_clusters=5, random_state=42)
+    # Explicitly set n_init to avoid FutureWarning in newer scikit-learn
+    kmeans = KMeans(n_clusters=5, random_state=42, n_init=10)
     kmeans.fit(df_model)
 
     with open('trained_Model.pkl', 'wb') as f:
