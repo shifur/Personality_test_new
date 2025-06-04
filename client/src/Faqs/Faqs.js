@@ -40,7 +40,7 @@ export default function Faqs() {
         <p>Q. How long is this test?</p>
 
         <p>
-          A. The test consists of 60 questions and takes about 5-10 minutes to
+          A. The test consists of 50 questions and takes about 10-15 minutes to
           complete.
         </p>
 
