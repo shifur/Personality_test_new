@@ -1,4 +1,5 @@
 import pickle
+import os
 import pandas as pd
 import numpy as np
 
@@ -19,10 +20,13 @@ class Predictor:
     model = None
 
     def prepPredictor(self):
-        infile = open('/home/kiani/awais/trained_Model.pkl','rb')
-        self.model = pickle.load(infile)
+        """Load the trained model from the repository."""
+        model_path = os.path.join(os.path.dirname(__file__), 'trained_Model.pkl')
+        with open(model_path, 'rb') as infile:
+            self.model = pickle.load(infile)
 
     def predict(self, data):
+        """Predict the cluster for the given data array."""
         new_result = self.model.predict(data)
         return new_result[0]
 
