@@ -50,3 +50,10 @@ A. Absolutely. Our Truity @ Work platform is designed to make it easy to give th
 
 #### Q. What is the difference between Big Five, Five Factor, and the OCEAN model of personality?<br>
 A. Big Five, Five Factor, and OCEAN are all ways of describing the same theory of personality. Multiple psychological studies have arrived at the conclusion that the differences between people's personalities can be organized into five broad categories, called the Big Five or Five Factors. These are sometimes referred to as the five broad dimensions of personality.
+
+## Training the Model
+To generate the `trained_Model.pkl` used by the backend, download `data-final.csv` from Kaggle and place it under `data/`. Then run:
+```bash
+python train_model.py
+```
+This will create the pickle file in the project root that the Flask app loads.
