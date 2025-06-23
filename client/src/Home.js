@@ -14,13 +14,12 @@ export default function Home() {
   const [question, setQuestion] = useState(questions);
   const [enableSubmit, setEnableSubmit] = useState(false);
   const [final, setFinal] = useState("");
-  const [selections, setSelections] = useState([
-    Object.keys(questions).map((x) => []),
-  ]);
+  const [selections, setSelections] = useState(
+    Array(questions.length).fill(null)
+  );
 
   const submitHandler = () => {
-    const result = Object.values(selections);
-    result.shift();
+    const result = [...selections];
     console.log(result);
     console.log(enableSubmit);
 
@@ -67,28 +66,23 @@ export default function Home() {
 
         .then((response) => {
           console.log(response);
-          // console.log(response.data?.output);
-          setFinal(response.data?.output);
-          console.log(final.length);
+          const output = response.data?.output;
+          setFinal(output);
           setEnableSubmit(true);
-          if (final.length >= 1) {
-            history.push("/prediction", {
-              averages: allAverages,
-              trait: final,
-            });
-          }
+          history.push("/prediction", {
+            averages: allAverages,
+            trait: output,
+          });
         })
         .catch((error) => console.log("The axios Error", error));
     }
 
-    if (result.length === 50) {
+    if (!result.includes(null)) {
       personalPredictor();
-      // history.push("/prediction", { averages: allAverages });
-      // setEnableSubmit(true);
     }
   };
   const handleChange = (selection, index) => {
-    let tempState = { ...selections };
+    const tempState = [...selections];
     tempState[index] = selection;
     setSelections(tempState);
   };
