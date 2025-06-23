@@ -49,6 +49,13 @@ cd client
 npm install
 npm start
 ```
+### Deploying to Heroku
+1. Ensure `requirements.txt`, `Procfile`, and `runtime.txt` are committed.
+2. Push the repository to GitHub.
+3. Create a free Heroku app and connect it to your repo.
+4. Set the buildpack to `heroku/python` and deploy.
+5. Once deployed, open the app URL to test the API.
+
 
 ### NumPy compatibility
 If you hit errors related to NumPy 2.x incompatibility, reinstall the packages
