@@ -14,6 +14,52 @@ Base your ratings on how you really are, not how you would like to be.
 - Flask (Backend Api)
 - Model (Colab Notebook)
 
+## Setup
+
+## Setup
+This project requires **Python 3.11**.
+
+```bash
+# create and activate a virtual environment
+python3 -m venv venv
+source venv/bin/activate  # on Windows use "venv\Scripts\activate"
+
+# install dependencies
+pip install -r requirements.txt
+```
+
+Download `data-final.csv` from Kaggle and place it in the `data/` directory.
+Run the training script to create `trained_Model.pkl`:
+
+```bash
+python train_model.py
+```
+
+### Running the app
+Start the Flask backend:
+
+```bash
+python server.py
+```
+
+Then start the React frontend in another terminal:
+
+```bash
+cd client
+npm install
+npm start
+```
+
+### NumPy compatibility
+If you hit errors related to NumPy 2.x incompatibility, reinstall the packages
+or downgrade NumPy:
+
+```bash
+pip uninstall numpy
+pip install "numpy<2"
+pip install --force-reinstall -r requirements.txt
+```
+
 # Machine learning Algorithms
 - Clustering (K-means)
 - Classifier (Random Forest)
