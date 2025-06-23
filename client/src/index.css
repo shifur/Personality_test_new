@@ -55,6 +55,11 @@ h4 {
   padding: 0 1rem;
 }
 
+#questions input[type="radio"]:checked + span {
+  font-weight: bold;
+  color: black;
+}
+
 #questions .question {
   display: flex;
   flex-direction: column;
@@ -137,4 +142,9 @@ h4 {
 .btn:hover:after {
   -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
   transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

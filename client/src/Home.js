@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ProgressBar } from "react-bootstrap";
 import Header from "./Header/Header";
 import axios from "axios";
 import MainHeading from "./MainHeading/MainHeading";
@@ -17,6 +18,8 @@ export default function Home() {
   const [selections, setSelections] = useState(
     Array(questions.length).fill(null)
   );
+  const answeredCount = selections.filter((s) => s !== null).length;
+  const progress = Math.round((answeredCount / questions.length) * 100);
 
   const submitHandler = () => {
     const result = [...selections];
@@ -97,6 +100,7 @@ export default function Home() {
         <div className="buckle-up">
           Buckle up! 50 MCQs will take some minutes to answer
         </div>
+        <ProgressBar now={progress} label={`${progress}%`} style={{ margin: "1rem 0" }} />
         <ol id="questions">
           {question.map((item, index) => {
             return (
@@ -179,10 +183,14 @@ export default function Home() {
         </ol>
         <div />
         <div className="button_container">
-          {enableSubmit == false && (
+          {selections.includes(null) && (
             <p className="fill-message">Please fill all questions</p>
           )}
-          <button className="btn" onClick={submitHandler}>
+          <button
+            className="btn"
+            onClick={submitHandler}
+            disabled={selections.includes(null)}
+          >
             <span>Submit</span>
           </button>
         </div>
