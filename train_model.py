@@ -1,11 +1,24 @@
+import argparse
+from pathlib import Path
+
 import pandas as pd
 from sklearn.cluster import KMeans
 import pickle
 
 
 def main():
-    # Path to the Kaggle dataset downloaded separately
-    data_path = "data/data-final.csv"
+    parser = argparse.ArgumentParser(description="Train the personality clustering model")
+    parser.add_argument(
+        "--data-path",
+        default="data/data-final.csv",
+        help="Path to the Kaggle dataset",
+    )
+    args = parser.parse_args()
+
+    data_path = Path(args.data_path)
+    if not data_path.exists():
+        parser.error(f"Data file '{data_path}' not found")
+
     df_raw = pd.read_csv(data_path, sep='\t')
     data = df_raw.copy()
     # remove additional questionnaire columns
