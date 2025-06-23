@@ -11,3 +11,12 @@ def test_root_get():
         response = client.get('/')
         assert response.status_code == 200
         assert response.data.decode('utf-8') == 'testing :)'
+
+def test_root_post():
+    app = server.app
+    server.predictor.prepPredictor()
+    with app.test_client() as client:
+        response = client.post('/', json={"text": [1] * 50})
+        assert response.status_code == 200
+        data = response.get_json()
+        assert "output" in data
