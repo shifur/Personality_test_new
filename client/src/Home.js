@@ -64,8 +64,9 @@ export default function Home() {
         text: result,
       };
       let test = JSON.stringify(myobj);
+      const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000/";
       await axios
-        .post("http://20.102.48.226:5000/", test, { headers: headers })
+        .post(apiUrl, test, { headers: headers })
 
         .then((response) => {
           console.log(response);
