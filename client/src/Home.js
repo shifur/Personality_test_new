@@ -116,7 +116,7 @@ export default function Home() {
                   name={`question_${question.indexOf(item)}`}
                 >
                   <h3 className="question-text">
-                    <span style={{ color: "black" }}>{++index + ") "}</span>
+                    <span style={{ color: "black" }}>{index + 1 + ") "}</span>
                     {item.question}
                   </h3>
                   <form className="choices">
