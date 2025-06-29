@@ -6,14 +6,17 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  margin: 0 auto;
+:root {
+  --opacity-color: rgba(0, 0, 0, 0.6);
+  --primary-color: #0072f5;
+  --secondary-color: #f8f9fa;
+  --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-:root {
-  --opacity-color: rgba(0, 0, 0, 0.555);
+body {
+  font-family: var(--font-family);
+  margin: 0 auto;
+  background-color: var(--secondary-color);
 }
 
 html {
@@ -74,6 +77,9 @@ h4 {
 
 #home {
   color: var(--opacity-color);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 #home .btnDisabled {
@@ -82,11 +88,12 @@ h4 {
 }
 
 .buckle-up {
-  background-color: yellowgreen;
+  background-color: var(--primary-color);
+  color: #fff;
   text-align: center;
-  padding: 1.5rem 0;
-  font-weight: bold;
-  font-size: 1.2rem;
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 @media only screen and (max-width: 900px) {

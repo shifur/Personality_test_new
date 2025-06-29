@@ -1,10 +1,14 @@
 #mainheading {
-  background-color: yellowgreen;
-  padding: 1rem;
+  background: linear-gradient(135deg, var(--primary-color), #0056b3);
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
 }
 
 #mainheading img {
   width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 #mainheading .row {
