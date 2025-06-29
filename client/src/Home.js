@@ -101,7 +101,12 @@ export default function Home() {
         <div className="buckle-up">
           Buckle up! 50 MCQs will take some minutes to answer
         </div>
-        <ProgressBar now={progress} label={`${progress}%`} style={{ margin: "1rem 0" }} />
+        <ProgressBar
+          now={progress}
+          label={`${progress}%`}
+          variant="info"
+          style={{ margin: "1rem 0" }}
+        />
         <ol id="questions">
           {question.map((item, index) => {
             return (
