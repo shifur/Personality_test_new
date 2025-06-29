@@ -49,6 +49,8 @@ cd client
 npm install
 npm start
 ```
+Create a `.env` file in the `client` folder (you can copy `.env.example`) and
+adjust `REACT_APP_API_URL` if your backend runs on a different URL or port.
 ### Deploying to Heroku
 1. Ensure `requirements.txt`, `Procfile`, and `runtime.txt` are committed.
 2. Push the repository to GitHub.
